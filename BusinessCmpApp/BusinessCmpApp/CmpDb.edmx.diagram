@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f3e49a56430b4da5b12b3309f1429f9e" Name="Diagram1">
+        <EntityTypeShape EntityType="BusinessCmpDbModel.Employee" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusinessCmpDbModel.EmplpoyeeDetail" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusinessCmpDbModel.ProjectManager" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusinessCmpDbModel.Project" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusinessCmpDbModel.Unit" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusinessCmpDbModel.vManagerDetail" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusinessCmpDbModel.vProjectEmployeeDetail" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="BusinessCmpDbModel.FK_Employees_Units" ManuallyRouted="false" />
+        <AssociationConnector Association="BusinessCmpDbModel.FK_EmplpoyeeDetails_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="BusinessCmpDbModel.FK_EmplpoyeeDetails_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="BusinessCmpDbModel.FK_ProjectManagers_EmplpoyeeDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="BusinessCmpDbModel.FK_Projects_Units" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

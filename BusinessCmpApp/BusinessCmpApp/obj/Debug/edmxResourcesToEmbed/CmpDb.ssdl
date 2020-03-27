@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BusinessCmpDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ContactNo" Type="bigint" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmplpoyeeDetails">
+    <Key>
+      <PropertyRef Name="EmployeeDetailId" />
+    </Key>
+    <Property Name="EmployeeDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="ProjectId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectManagers">
+    <Key>
+      <PropertyRef Name="ProjectManagerId" />
+    </Key>
+    <Property Name="ProjectManagerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeDetailId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectTitle" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Units">
+    <Key>
+      <PropertyRef Name="UnitId" />
+    </Key>
+    <Property Name="UnitId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UnitName" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BusinessCmpDb.dbo.vManagerDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vManagerDetails">
+    <Key>
+      <PropertyRef Name="ProjectManagerId" />
+      <PropertyRef Name="ProjectTitle" />
+      <PropertyRef Name="UnitName" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="ContactNo" />
+      <PropertyRef Name="Gender" />
+    </Key>
+    <Property Name="ProjectManagerId" Type="int" Nullable="false" />
+    <Property Name="ProjectTitle" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="UnitName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ContactNo" Type="bigint" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BusinessCmpDb.dbo.vProjectEmployeeDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vProjectEmployeeDetails">
+    <Key>
+      <PropertyRef Name="ProjectTitle" />
+      <PropertyRef Name="ProjectId" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ContactNo" />
+      <PropertyRef Name="Gender" />
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="UnitName" />
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="ProjectTitle" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ProjectId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ContactNo" Type="bigint" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UnitName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Employees_Units">
+    <End Role="Units" Type="Self.Units" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Units">
+        <PropertyRef Name="UnitId" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmplpoyeeDetails_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="EmplpoyeeDetails" Type="Self.EmplpoyeeDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="EmplpoyeeDetails">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmplpoyeeDetails_Projects">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+    <End Role="EmplpoyeeDetails" Type="Self.EmplpoyeeDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="EmplpoyeeDetails">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectManagers_EmplpoyeeDetails">
+    <End Role="EmplpoyeeDetails" Type="Self.EmplpoyeeDetails" Multiplicity="1" />
+    <End Role="ProjectManagers" Type="Self.ProjectManagers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmplpoyeeDetails">
+        <PropertyRef Name="EmployeeDetailId" />
+      </Principal>
+      <Dependent Role="ProjectManagers">
+        <PropertyRef Name="EmployeeDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Projects_Units">
+    <End Role="Units" Type="Self.Units" Multiplicity="1" />
+    <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Units">
+        <PropertyRef Name="UnitId" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BusinessCmpDbModelStoreContainer">
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmplpoyeeDetails" EntityType="Self.EmplpoyeeDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectManagers" EntityType="Self.ProjectManagers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Units" EntityType="Self.Units" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vManagerDetails" EntityType="Self.vManagerDetails" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vManagerDetails].[ProjectManagerId] AS [ProjectManagerId], 
+    [vManagerDetails].[ProjectTitle] AS [ProjectTitle], 
+    [vManagerDetails].[UnitName] AS [UnitName], 
+    [vManagerDetails].[Name] AS [Name], 
+    [vManagerDetails].[Address] AS [Address], 
+    [vManagerDetails].[ContactNo] AS [ContactNo], 
+    [vManagerDetails].[Gender] AS [Gender]
+    FROM [dbo].[vManagerDetails] AS [vManagerDetails]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vProjectEmployeeDetails" EntityType="Self.vProjectEmployeeDetails" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vProjectEmployeeDetails].[ProjectTitle] AS [ProjectTitle], 
+    [vProjectEmployeeDetails].[ProjectId] AS [ProjectId], 
+    [vProjectEmployeeDetails].[Name] AS [Name], 
+    [vProjectEmployeeDetails].[ContactNo] AS [ContactNo], 
+    [vProjectEmployeeDetails].[Gender] AS [Gender], 
+    [vProjectEmployeeDetails].[Address] AS [Address], 
+    [vProjectEmployeeDetails].[UnitName] AS [UnitName], 
+    [vProjectEmployeeDetails].[EmployeeId] AS [EmployeeId]
+    FROM [dbo].[vProjectEmployeeDetails] AS [vProjectEmployeeDetails]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Employees_Units" Association="Self.FK_Employees_Units">
+      <End Role="Units" EntitySet="Units" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmplpoyeeDetails_Employees" Association="Self.FK_EmplpoyeeDetails_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="EmplpoyeeDetails" EntitySet="EmplpoyeeDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmplpoyeeDetails_Projects" Association="Self.FK_EmplpoyeeDetails_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="EmplpoyeeDetails" EntitySet="EmplpoyeeDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectManagers_EmplpoyeeDetails" Association="Self.FK_ProjectManagers_EmplpoyeeDetails">
+      <End Role="EmplpoyeeDetails" EntitySet="EmplpoyeeDetails" />
+      <End Role="ProjectManagers" EntitySet="ProjectManagers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Projects_Units" Association="Self.FK_Projects_Units">
+      <End Role="Units" EntitySet="Units" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

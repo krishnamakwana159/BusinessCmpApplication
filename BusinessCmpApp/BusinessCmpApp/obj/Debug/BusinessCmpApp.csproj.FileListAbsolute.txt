@@ -1,0 +1,12 @@
+C:\Users\Dell\source\repos\BusinessCmpApp\BusinessCmpApp\bin\Debug\BusinessCmpApp.exe.config
+C:\Users\Dell\source\repos\BusinessCmpApp\BusinessCmpApp\bin\Debug\BusinessCmpApp.exe
+C:\Users\Dell\source\repos\BusinessCmpApp\BusinessCmpApp\bin\Debug\BusinessCmpApp.pdb
+C:\Users\Dell\source\repos\BusinessCmpApp\BusinessCmpApp\bin\Debug\EntityFramework.dll
+C:\Users\Dell\source\repos\BusinessCmpApp\BusinessCmpApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Dell\source\repos\BusinessCmpApp\BusinessCmpApp\bin\Debug\EntityFramework.xml
+C:\Users\Dell\source\repos\BusinessCmpApp\BusinessCmpApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Dell\source\repos\BusinessCmpApp\BusinessCmpApp\obj\Debug\BusinessCmpApp.csprojAssemblyReference.cache
+C:\Users\Dell\source\repos\BusinessCmpApp\BusinessCmpApp\obj\Debug\BusinessCmpApp.csproj.CoreCompileInputs.cache
+C:\Users\Dell\source\repos\BusinessCmpApp\BusinessCmpApp\obj\Debug\BusinessCmpApp.csproj.CopyComplete
+C:\Users\Dell\source\repos\BusinessCmpApp\BusinessCmpApp\obj\Debug\BusinessCmpApp.exe
+C:\Users\Dell\source\repos\BusinessCmpApp\BusinessCmpApp\obj\Debug\BusinessCmpApp.pdb

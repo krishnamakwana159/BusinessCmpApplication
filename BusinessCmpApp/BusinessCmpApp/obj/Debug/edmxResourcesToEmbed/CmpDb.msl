@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BusinessCmpDbModelStoreContainer" CdmEntityContainer="BusinessCmpDbEntities">
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="BusinessCmpDbModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmplpoyeeDetails">
+      <EntityTypeMapping TypeName="BusinessCmpDbModel.EmplpoyeeDetail">
+        <MappingFragment StoreEntitySet="EmplpoyeeDetails">
+          <ScalarProperty Name="EmployeeDetailId" ColumnName="EmployeeDetailId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectManagers">
+      <EntityTypeMapping TypeName="BusinessCmpDbModel.ProjectManager">
+        <MappingFragment StoreEntitySet="ProjectManagers">
+          <ScalarProperty Name="ProjectManagerId" ColumnName="ProjectManagerId" />
+          <ScalarProperty Name="EmployeeDetailId" ColumnName="EmployeeDetailId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="BusinessCmpDbModel.Project">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="BusinessCmpDbModel.Unit">
+        <MappingFragment StoreEntitySet="Units">
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vManagerDetails">
+      <EntityTypeMapping TypeName="BusinessCmpDbModel.vManagerDetail">
+        <MappingFragment StoreEntitySet="vManagerDetails">
+          <ScalarProperty Name="ProjectManagerId" ColumnName="ProjectManagerId" />
+          <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vProjectEmployeeDetails">
+      <EntityTypeMapping TypeName="BusinessCmpDbModel.vProjectEmployeeDetail">
+        <MappingFragment StoreEntitySet="vProjectEmployeeDetails">
+          <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
